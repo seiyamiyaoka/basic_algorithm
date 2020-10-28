@@ -6,10 +6,11 @@ I am using a tree structure.
 Also, the node of the tree is held by hashmap.
 
 ## About Order complexity
-$O(n ^ 2)$
 
-The amount of calculation is $O(n^2)$ because there is a double loop of the for statement in the suffixes method.
-
+- TrieNode
+  - $O(n ^ 2)$.The amount of calculation is $O(n^2)$ because there is a double loop of the for statement in the suffixes method.
+- Trie
+  - $O(n * m)$. First of all, loop the prefix character. this is `n`.The worst case is when character is included in the children of node every time. It takes a time complexity of $O(m)$ to make sure that the dict contains a particular key. this is `m`. Therefore $O(n * m)$.
 ## About Space complexity
 - TrieNode
   - __init__(self)

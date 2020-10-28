@@ -9,10 +9,10 @@ Also, the node of the tree is held by hashmap.
 
 - RouteTrie
   - insert(insert(self, path_routes, handler))
-    - $O(n)$. This is because it loops to the end of path.
+    - $O(n * m)$. This is because it loops to the end of path. this is `n`. It takes a time complexity of $O(m)$ to make sure that the dict contains a particular key. this is `m`. Therefore $O(n * m)$
 - Router
   - lookup(self, path)
-    - $O(n)$. The path of the received string is converted to an array and looped.
+    - $O(n * m)$. Iterating the list requires `n` time complexity. It also requires $O(m)$ time complexity of m to see if children contain a particular path. This is because I'm using dict. Therefore $O(n * m)$.
 
 ## About Space complexity
 - RouteTrie

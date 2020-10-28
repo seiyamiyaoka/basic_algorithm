@@ -9,11 +9,12 @@ class RouteTrie:
     node = self.root_node
     end_path = path_routes[-1]
     for path in path_routes:
-      if path and path not in node.children:
-        if path == end_path:
-          node.insert(path, handler)
-        else:
-          node.insert(path)
+      if path:
+        if path not in node.children:
+          if path == end_path:
+            node.insert(path, handler)
+          else:
+            node.insert(path)
         node = node.children[path]
 
 class RouteTrieNode:
@@ -60,8 +61,6 @@ class Router:
     else:
       return error.handler
 
-
-
 router = Router("root handler", "not found handler")
 router.add_handler("/home/about", "about handler")
 router.add_handler("/blogs", "blogs handler")
@@ -78,3 +77,6 @@ print(router.lookup("/home/about/"))
 # about handler
 print(router.lookup("/home/about/me"))
 # not found handler
+router.add_handler("/home/about/me", "about me handler")
+print(router.lookup("/home/about/me"))
+# about me handler
