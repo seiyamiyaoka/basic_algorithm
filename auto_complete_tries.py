@@ -68,4 +68,3 @@ print(result.suffixes())
 # childrenのkeyを次々と取得してkeyがなくなるまでループ
 # keyが無くなったら最後の文字を返す
 # 再帰的に実行しているので呼び出し元に文字列を返して以前のsuffixの足していきそれを探索済みpathに追加する
-# 

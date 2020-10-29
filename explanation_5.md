@@ -6,11 +6,15 @@ I am using a tree structure.
 Also, the node of the tree is held by hashmap.
 
 ## About Order complexity
-
 - TrieNode
-  - $O(n ^ 2)$.The amount of calculation is $O(n^2)$ because there is a double loop of the for statement in the suffixes method.
+  - insert(self, char)
+    - $O(1)$
+  - suffixes(self, suffix='', is_stop=False) // 間違っているので直すが理由がわかっていない
+    - $O(n ^ n)$.This is because the suffixes method is executed recursively for the number of keys.
 - Trie
-  - $O(n * m)$. First of all, loop the prefix character. this is `n`.The worst case is when character is included in the children of node every time. It takes a time complexity of $O(m)$ to make sure that the dict contains a particular key. this is `m`. Therefore $O(n * m)$.
+  - insert(self, word) and find(self, prefix)
+    - $O(n * m)$. First of all, loop the prefix character. this is `n`.The worst case is when character is included in the children of node every time. It takes a time complexity of $O(m)$ to make sure that the dict contains a particular key. this is `m`. Therefore $O(n * m)$.
+
 ## About Space complexity
 - TrieNode
   - __init__(self)
@@ -18,15 +22,16 @@ Also, the node of the tree is held by hashmap.
   - insert(self, char)
     - $O(1)$. This is because one node is set for one key.
   - suffixes(self, suffix='', is_stop=False)
-    - $O(n ^ 2)$. This is because a new array is retained each time recursive processing is performed.
+    - $O(n ^ n)$. This is because the suffixes method is executed recursively for the number of keys.
 - Trie
   - __init__(self)
     - $O(1)$
   - insert(self, word)
-    - $O(1)$
-      - This function is looping, but the node variable is reused so no new space is needed.
+    - $O(n * m)$
+      - This is because space is used to check the hash table for the number of characters.
   - find(self, prefix)
-    - $O(1)$
+    - $O(n * m)$
+      - This is because space is used to check the hash table for the number of characters.
 
 ## About implementation
 

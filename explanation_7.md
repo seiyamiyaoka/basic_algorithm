@@ -19,7 +19,7 @@ Also, the node of the tree is held by hashmap.
   - __init__(self, path, handler)
     - $O(1)$.
   - insert(self, path_routes, handler)
-    - $O(n)$. Since the path_routes argument is an array, it requires a space complexity of $O(n)$.
+    - $O(n * m)$. This is because space is used to check the hash table for the number of path_routes.
 - RouteTrieNode
   - __init__(self, path, handler)
     - $O(n)$.
@@ -32,8 +32,9 @@ Also, the node of the tree is held by hashmap.
   - add_handler(self, path, handler)
     - $O(1)$.
   - lookup(self, path)
-    - $O(n)$.
-      - This is because we use the paths variable, which is a string converted to an array.
+    - $O(n * m)$.
+      - This is because space is used to check the hash table for the number of paths.
+
 ## About implementation
 
 It uses the Trie data structure.
